@@ -1,0 +1,38 @@
+package app;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Student;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		Student std = new Student();
+		
+		System.out.println("What the student name?");
+		std.name = sc.nextLine();
+		System.out.println("What the grade number 1?");
+		std.n1 = sc.nextDouble();
+		System.out.println("What the grade number 2?");
+		std.n2 = sc.nextDouble();
+		System.out.println("What the grade number 3?");
+		std.n3 = sc.nextDouble();
+		
+		std.finalGrade();
+			System.out.printf("FINAL GRADE = %.2f\n", std.finalGrade);
+		
+		if(std.finalGrade() < 60) {
+			System.out.println("FAILED");
+			System.out.printf("MISSING %.2f POINTS%n", std.missingPoints());
+		} else {
+			System.out.println("PASS");
+		}
+		
+		sc.close();
+	}
+
+}
